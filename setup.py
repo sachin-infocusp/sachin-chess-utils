@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="sachin_chess_utils",
-    version="0.1.3",
+    version="0.1.5",
     author="Sachin Chauhan Infocusp",
     packages=find_packages(),
     install_requires=[

@@ -5,8 +5,17 @@ pice_mapping = {
     for key, value in zip(chess.PIECE_SYMBOLS, chess.PIECE_NAMES)
 }
 
-def describe_move(move, extra=None):
+def describe_move(move, is_en_passant=False):
     """
+    Convert a chess move in UCI format to a human-readable format.
+
+    Args:
+        move (str): The chess move in UCI format.
+        is_en_passant (bool): Whether the move is an en passant capture. Default to False.
+    
+    Returns:
+        str: The human-readable description of the move.
+        
     >>> describe_move('Nxe4#')
     'Knight captures e4 check and mate.'
     """
@@ -17,8 +26,6 @@ def describe_move(move, extra=None):
     is_mate = move[-1] == '#'
     if is_check or is_mate:
         move = move[:-1]
-
-    is_ep = extra == 'e.p.'
 
     is_pawn_move = len(move) == 2
 
@@ -59,7 +66,7 @@ def describe_move(move, extra=None):
     if is_mate:
         output += ' check and mate'
 
-    if is_ep:
+    if is_en_passant:
         output += ' en passant'
 
     return output

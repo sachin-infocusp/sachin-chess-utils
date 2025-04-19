@@ -1,15 +1,20 @@
 # sachin-chess-utils
 
 General propose Chess related utility functions.
+Some examples below.
 
-# Build
+### 1. Convert chess move to human readable sentence:
 
-python3 setup.py sdist bdist_wheel
+```
+>>> from sachin_chess_utils import describe_move
 
-# Local Test
+>>> print(describe_move('Nxe4#'))
+"knight captures e4 check and mate"
+```
 
-pip install dist/sachin_chess_utils-0.1.1-py3-none-any.whlhttps://www.youtube.com/watch?v=Kz6IlDCyOUY&t=377s&ab_channel=pixegami
+- This is useful for the text to speech model. Machine can "say" the moves.
+- Function might look simple at first glance but there are **some corner cases which are handled here** (That's why I thought to make it open source).
 
-# Publish
+### 2. Many more such functions are work in progress 🚀
 
-twine upload dist/\*
+....
